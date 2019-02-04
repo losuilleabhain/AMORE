@@ -121,10 +121,10 @@ Then, unless '--no-init-file' was given, R searches for a user
 
 \bigskip
 
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.4\textwidth}
 
 \begin{itemize}
-\item
+\item \\
 \item[1.] R\_ENVIRON\\
 \item[2.] R\_ENVIRON\_USER\\
 \item[3.] R\_PROFILE\\
@@ -132,19 +132,20 @@ Then, unless '--no-init-file' was given, R searches for a user
 \end{itemize}
 
 \end{minipage}
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.5\textwidth}
 
 \begin{itemize}
-\item
-\item {\color{red} Global Environment\\}
-\item {\color{blue} User Environment\\}
-\item {\color{blue} Group Profile\\}
-\item {\color{green} User Profile\\}
+\item 
+\item {\color{red} R\_HOME/etc/Renviron.site\\}
+\item {\color{blue} $\sim$/.Renviron}
+\item {\color{blue} GROUP\_HOME/Rprofile.site\\}
+\item {\color{green} $\sim$/.Rprofile\\}
 \end{itemize}
 
 \end{minipage}
 
 \bigskip
+\emph{Files in {\color{blue} blue} are available on github}
 
 \end{frame}
 
@@ -236,17 +237,16 @@ Support & DOR IT & KPIT & DOR IT \\
 \textbf{Set R\_PROFILE\_USER\\}
 
 \begin{center}
- Create Project .Rprofiles e.g.\\ GROUP\_HOME/RPROFILE/Rprofile.RPROFILE
+ Create Project .Rprofiles e.g.\\ GROUP\_HOME/RPROFILE/.RPROFILE
 \end{center}
 
 \textbf{Create Function to source Project Environments \\}
 \end{frame}
 
 <<echo=TRUE, results=tex>>=
-GROUP_HOME = "../"
 Renv <- function(x){
  switch(x,
-       RPROFILE = source(paste0(GROUP_HOME,"RPROFILE/Rprofile.RPROFILE")))
+       RPROFILE = source(paste0(GROUP_HOME,"RPROFILE/.RPROFILE")))
 }
 Renv('RPROFILE') 
  
@@ -331,7 +331,7 @@ source(``./CODE/analysis/models.r'')
 \begin{center}
 Separate git controlled code from the project e.g.\\
 \begin{small}
-source(paste0(DATA,``analysis/models\_output''))
+ource(paste0(DATA,``analysis/models\_output''))
 \end{small}
 \end{center}
 \bigskip
@@ -340,7 +340,7 @@ source(paste0(DATA,``analysis/models\_output''))
 
 \begin{frame}{Suggestions}
 
-\emph{Only keep code that creates data or analysis}
+\emph{Only manage code that creates data or analysis}
 
 \begin{itemize}
 
