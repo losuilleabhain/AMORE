@@ -124,7 +124,7 @@ Then, unless '--no-init-file' was given, R searches for a user
 \begin{minipage}{0.4\textwidth}
 
 \begin{itemize}
-\item \\
+\item 
 \item[1.] R\_ENVIRON\\
 \item[2.] R\_ENVIRON\_USER\\
 \item[3.] R\_PROFILE\\
@@ -237,21 +237,12 @@ Support & DOR IT & KPIT & DOR IT \\
 \textbf{Set R\_PROFILE\_USER\\}
 
 \begin{center}
- Create Project .Rprofiles e.g.\\ GROUP\_HOME/RPROFILE/.RPROFILE
+ Create Project .Rprofiles\\
 \end{center}
-
-\textbf{Create Function to source Project Environments \\}
+\textbf{e.g. GROUP\_HOME/RPROFILE/.RPROFILE}
+\begin{center} Create Function to source Project Environments \\\end{center}
+\textbf{Define Renv}
 \end{frame}
-
-<<echo=TRUE, results=tex>>=
-Renv <- function(x){
- switch(x,
-       RPROFILE = source(paste0(GROUP_HOME,"RPROFILE/.RPROFILE")))
-}
-Renv('RPROFILE') 
- 
-@
-
 
 \begin{frame}{R\_PROFILE\_USER - User Profile {\color{green} (Freedom!)}}
 
@@ -343,14 +334,14 @@ ource(paste0(DATA,``analysis/models\_output''))
 \emph{Only manage code that creates data or analysis}
 
 \begin{itemize}
-
 \item \textbf{Management}
 \begin{itemize}
 \item Content
 \item Structure
 \end{itemize}
-\bigskip
 \end{itemize}
+\bigskip
+
 \emph{ Maintain same format for  Code and Analysis directories}
 \begin{itemize}
 \item \textbf{Maintenance}
