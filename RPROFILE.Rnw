@@ -25,6 +25,17 @@
 \SweaveOpts{prefix=TRUE,prefix.string=fig-,include=TRUE}
 \setkeys{Gin}{width=0.6\textwidth}
 
+\begin{frame}{Outline}
+\begin{center}git clone https://github.com/losuilleabhain/AMORE.git \end{center}
+\bigskip
+\begin{itemize}
+\item Introduction\\
+\item Environment\\
+\item Application\\
+\item Implementation\\
+\end{itemize}
+\end{frame}
+
 \section*{Introduction}
 
 \begin{frame}{Motivation}
@@ -60,11 +71,7 @@ A Project has 3 sets of information
 \end{frame}
 
 
-
-\begin{frame}{Outline}
-\end{frame}
-
-\section*{Environment}
+\section{Environment}
 
 \begin{frame}{?Startup}
 \begin{tiny}
@@ -218,8 +225,6 @@ Support & DOR IT & KPIT & DOR IT \\
 \textbf{Set R\_LIBS\_USER}
 \end{frame}
 
-\section*{Profile}
-
 \begin{frame}{R\_PROFILE - Group Profile}
 
 \begin{center} GROUP\_HOME/Rprofile.site\\ \end{center}
@@ -231,24 +236,24 @@ Support & DOR IT & KPIT & DOR IT \\
 \textbf{Set R\_PROFILE\_USER\\}
 
 \begin{center}
- Create Project .Rprofiles e.g.\\ $\sim$/YHAT/.Rprofile.YHAT
+ Create Project .Rprofiles e.g.\\ GROUP\_HOME/RPROFILE/Rprofile.RPROFILE
 \end{center}
 
 \textbf{Create Function to source Project Environments \\}
 \end{frame}
 
 <<echo=TRUE, results=tex>>=
-
+GROUP_HOME = "../"
 Renv <- function(x){
  switch(x,
-       YHAT = source(".Rprofile.YHAT"))
+       RPROFILE = source(paste0(GROUP_HOME,"RPROFILE/Rprofile.RPROFILE")))
 }
-Renv('YHAT') 
+Renv('RPROFILE') 
  
 @
 
 
-\begin{frame}{R\_PROFILE\_USER - User Profile}
+\begin{frame}{R\_PROFILE\_USER - User Profile {\color{green} (Freedom!)}}
 
 \begin{center} $\sim$/.Rprofile\\ \end{center}
 \begin{center}
@@ -273,7 +278,7 @@ Create Password Vault \\ $\sim$/pwv.txt \\
 
 \begin{frame}{A Project Profile}
 
-\begin{center} GROUP\_HOME/PROJECT/.Rprofile.<PROJECT\_NAME>\\ \end{center}
+\begin{center} GROUP\_HOME/RPROFILE/Rprofile.RPROFILE\\ \end{center}
 \begin{center}
 \rule{4cm}{0.6pt}
 \end{center}
@@ -311,6 +316,8 @@ Create Analysis Directory\\
 
 \end{frame}
 
+\section*{Implementation}
+
 \begin{frame}{Project Workflow}
 
 \textbf{Option 1:}
@@ -331,22 +338,10 @@ source(paste0(DATA,``analysis/models\_output''))
 
 \end{frame}
 
-\section*{Implementation}
-\begin{frame}{Results}
-
-\textbf{Option 1 vs. Option 2}
-\begin{itemize}
-\item Option 1 is less verbose
-\item Option 2 provides extra flexibility
-\item Option 2 isolates code maintenance
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Conclusions}
+\begin{frame}{Suggestions}
 
 \emph{Only keep code that creates data or analysis}
+
 \begin{itemize}
 
 \item \textbf{Management}
@@ -365,6 +360,23 @@ source(paste0(DATA,``analysis/models\_output''))
 \end{itemize}
 
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Future}
+
+\textbf{Option 1 vs. Option 2}
+\begin{itemize}
+\item Option 1 is less verbose
+\item Option 2 provides extra flexibility
+\item Option 2 isolates code maintenance
+\end{itemize}
+\bigskip
+
+\textbf{Develop Packages for Healthcare Analytics}
+\bigskip
+
+\textbf{Maintain git repositories with open-source code}
 
 \end{frame}
 
