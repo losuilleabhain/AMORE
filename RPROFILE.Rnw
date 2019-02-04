@@ -331,7 +331,7 @@ ource(paste0(DATA,``analysis/models\_output''))
 
 \begin{frame}{Suggestions}
 
-\emph{Only manage code that creates data or analysis}
+\emph{Only manage content that generates or contains analysis}
 
 \begin{itemize}
 \item \textbf{Management}
